@@ -128,7 +128,7 @@
             <div class="search-section-area ssa2 active-pate">
                 <div class="search-area-inner">
                     <div class="search-contents">
-                        <form id="filter-property-form" method="POST">
+                        <form id="filter-property-form" method="GET" action="{{ route('welcome') }}">
                             <div class="row">
                                 <div class="col-lg-4 col-md-6 col-sm-6 col-6">
                                     <div class="form-group">

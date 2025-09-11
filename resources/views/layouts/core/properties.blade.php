@@ -10,7 +10,7 @@
         </div>
     </div>
     <div class="slide-container">
-        @foreach($properties as $property)
+        @forelse($properties as $property)
             @php
                 $unit   = $property->units->first();
                 $image  = $property->galleries->first();
@@ -49,7 +49,9 @@
                     </div>
                 </div>
             </div>
-        @endforeach
+        @empty
+            <p class="text-center w-100">No properties found.</p>
+        @endforelse
     </div>
 </div>
 <!-- Featured Properties end -->
