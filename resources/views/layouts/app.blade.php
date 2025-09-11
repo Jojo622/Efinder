@@ -1,80 +1,118 @@
-<!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-
-    <title>{{ config('app.name', 'Laravel') }}</title>
-
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.bunny.net">
-    <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
-
-    <!-- Scripts -->
-    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
-</head>
-<body>
-    <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav me-auto">
-
-                    </ul>
-
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ms-auto">
-                        <!-- Authentication Links -->
-                        @guest
-                            @if (Route::has('login'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                                </li>
-                            @endif
-
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif
-                        @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
-                                </a>
-
-                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
-                        @endguest
-                    </ul>
-                </div>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>{{ config('app.name') }}</title>
+        <meta name="csrf-token" content="{{ csrf_token() }}">
+        <!-- Google Font: Source Sans Pro -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback" />
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="{{ url('plugins/fontawesome-free/css/all.min.css') }}" />
+        <!-- Ionicons -->
+        <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" />
+        <!-- Tempusdominus Bootstrap 4 -->
+        <link rel="stylesheet" href="{{ url('plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css') }}" />
+        <!-- iCheck -->
+        <link rel="stylesheet" href="{{ url('plugins/icheck-bootstrap/icheck-bootstrap.min.css') }}" />
+        <!-- JQVMap -->
+        <link rel="stylesheet" href="{{ url('plugins/jqvmap/jqvmap.min.css') }}" />
+        <!-- Theme style -->
+        <link rel="stylesheet" href="dist/css/adminlte.min.css" />
+        <!-- overlayScrollbars -->
+        <link rel="stylesheet" href="{{ url('plugins/overlayScrollbars/css/OverlayScrollbars.min.css') }}" />
+        <!-- Daterange picker -->
+        <link rel="stylesheet" href="{{ url('plugins/daterangepicker/daterangepicker.css') }}" />
+        <!-- summernote -->
+        <link rel="stylesheet" href="{{ url('plugins/summernote/summernote-bs4.min.css') }}" />
+    </head>
+    <body class="hold-transition sidebar-mini layout-fixed">
+        <div class="wrapper">
+            <!-- Preloader -->
+            <div class="preloader flex-column justify-content-center align-items-center">
+                <img class="animation__shake" src="{{ url('dist/img/AdminLTELogo.png') }}" alt="AdminLTELogo" height="60" width="60" />
             </div>
-        </nav>
 
-        <main class="py-4">
-            @yield('content')
-        </main>
-    </div>
-</body>
+            @include('layouts.admin.header')
+            @include('layouts.admin.sidebar')
+
+            <!-- Content Wrapper. Contains page content -->
+            <div class="content-wrapper">
+                <!-- Content Header (Page header) -->
+                <div class="content-header">
+                    <div class="container-fluid">
+                        <div class="row mb-2">
+                            <div class="col-sm-6">
+                                <h1 class="m-0">Dashboard</h1>
+                            </div>
+                            <!-- /.col -->
+                            <div class="col-sm-6">
+                                <ol class="breadcrumb float-sm-right">
+                                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                    <li class="breadcrumb-item active">Dashboard v1</li>
+                                </ol>
+                            </div>
+                            <!-- /.col -->
+                        </div>
+                        <!-- /.row -->
+                    </div>
+                    <!-- /.container-fluid -->
+                </div>
+                <!-- /.content-header -->
+
+                <!-- Main content -->
+                <section class="content">
+                    <div class="container-fluid">
+                        <!-- Small boxes (Stat box) -->
+                        @yield('content')
+                        <!-- /.row -->
+                    </div>
+                    <!-- /.container-fluid -->
+                </section>
+                <!-- /.content -->
+            </div>
+            <!-- /.content-wrapper -->
+            <footer class="main-footer">
+                <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong>
+                All rights reserved.
+                <div class="float-right d-none d-sm-inline-block"><b>Version</b> 3.2.0</div>
+            </footer>
+        </div>
+        <!-- ./wrapper -->
+
+        <!-- jQuery -->
+        <script src="{{ url('plugins/jquery/jquery.min.js') }}"></script>
+        <!-- jQuery UI 1.11.4 -->
+        <script src="{{ url('plugins/jquery-ui/jquery-ui.min.js') }}"></script>
+        <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+        <script>
+            $.widget.bridge("uibutton", $.ui.button);
+        </script>
+        <!-- Bootstrap 4 -->
+        <script src="{{ url('plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+        <!-- ChartJS -->
+        <script src="{{ url('plugins/chart.js/Chart.min.js') }}"></script>
+        <!-- Sparkline -->
+        <script src="{{ url('plugins/sparklines/sparkline.js') }}"></script>
+        <!-- JQVMap -->
+        <script src="{{ url('plugins/jqvmap/jquery.vmap.min.js') }}"></script>
+        <script src="{{ url('plugins/jqvmap/maps/jquery.vmap.usa.js') }}"></script>
+        <!-- jQuery Knob Chart -->
+        <script src="{{ url('plugins/jquery-knob/jquery.knob.min.js') }}"></script>
+        <!-- daterangepicker -->
+        <script src="{{ url('plugins/moment/moment.min.js') }}"></script>
+        <script src="{{ url('plugins/daterangepicker/daterangepicker.js') }}"></script>
+        <!-- Tempusdominus Bootstrap 4 -->
+        <script src="{{ url('plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js') }}"></script>
+        <!-- Summernote -->
+        <script src="{{ url('plugins/summernote/summernote-bs4.min.js') }}"></script>
+        <!-- overlayScrollbars -->
+        <script src="{{ url('plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js') }}"></script>
+        <!-- AdminLTE App -->
+        <script src="{{ url('dist/js/adminlte.js') }}"></script>
+        <!-- AdminLTE for demo purposes -->
+        <script src="{{ url('dist/js/demo.js') }}"></script>
+        <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+        <script src="{{ url('dist/js/pages/dashboard.js') }}"></script>
+    </body>
 </html>
