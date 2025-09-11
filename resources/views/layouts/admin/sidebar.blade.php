@@ -14,19 +14,7 @@
                 <img src="{{ url('dist/img/user2-160x160.jpg') }}" class="img-circle elevation-2" alt="User Image" />
             </div>
             <div class="info">
-                <a href="#" class="d-block">Alexander Pierce</a>
-            </div>
-        </div>
-
-        <!-- SidebarSearch Form -->
-        <div class="form-inline">
-            <div class="input-group" data-widget="sidebar-search">
-                <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search" />
-                <div class="input-group-append">
-                    <button class="btn btn-sidebar">
-                        <i class="fas fa-search fa-fw"></i>
-                    </button>
-                </div>
+                <a href="#" class="d-block">{{ auth()->user()->name }}</a>
             </div>
         </div>
 
@@ -34,7 +22,7 @@
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                 <li class="nav-item">
-                    <a href="pages/widgets.html" class="nav-link">
+                    <a href="{{ url('home') }}" class="nav-link">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
                             Dashboard
@@ -53,7 +41,7 @@
                         <li class="nav-item">
                             <a href="{{ url('client/properties') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>My Properties</p>
+                                <p>{{ auth()->user()->role === 'Admin' ? 'Properties' : 'My Properties' }}</p>
                             </a>
                         </li>
                         <li class="nav-item">
@@ -63,6 +51,18 @@
                             </a>
                         </li>
                     </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ url('client/customers') }}" class="nav-link">
+                        <i class="nav-icon fas fa-solid fa-users"></i>
+                        <p>Customers</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ url('client/users') }}" class="nav-link">
+                        <i class="nav-icon fas fa-solid fa-users"></i>
+                        <p>Users</p>
+                    </a>
                 </li>
             </ul>
         </nav>

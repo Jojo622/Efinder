@@ -95,14 +95,18 @@
 </div>
 <div class="form-group">
     <label for="images" class="form-label">Images</label>
-    <input type="file" name="images[]" id="images" class="form-control @error('images.*') is-invalid @enderror" multiple>
+    <div>
+        <input type="file" name="images[]" id="images" multiple />
+    </div>
     @error('images.*')
         <div class="text-danger">{{ $message }}</div>
     @enderror
 </div>
 <div class="form-group">
     <label for="document" class="form-label">Document</label>
-    <input type="file" name="document" id="document" class="form-control @error('document') is-invalid @enderror">
+    <div>
+        <input type="file" name="document" id="document" />
+    </div>
     @error('document')
         <div class="text-danger">{{ $message }}</div>
     @enderror

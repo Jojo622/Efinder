@@ -26,9 +26,9 @@
                                 My Account
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <li><a class="dropdown-item" href="{{ url('auth/login') }}">Login</a></li>
-                                <li><a class="dropdown-item" href="{{ url('auth/register') }}">Register</a></li>
-                                <li><a class="dropdown-item" href="{{ url('auth/reset-password') }}">Forgot Password</a></li>
+                                <li><a class="dropdown-item" href="{{ url('login') }}">Login</a></li>
+                                <li><a class="dropdown-item" href="{{ url('register') }}">Register</a></li>
+                                <li><a class="dropdown-item" href="{{ url('password/reset') }}">Forgot Password</a></li>
                                 @if (auth()->check())
                                 <li><a class="dropdown-item" href="{{ url('home') }}">Dashboard</a></li>
                                 <li><a class="dropdown-item" href="{{ url('client/profile') }}">My Profile</a></li>
