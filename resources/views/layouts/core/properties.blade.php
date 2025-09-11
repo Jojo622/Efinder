@@ -1,8 +1,6 @@
 <!-- Featured Properties start -->
 @php
-    use App\Models\Property;
     use Illuminate\Support\Facades\Storage;
-    $featuredProperties = Property::with(['units', 'galleries'])->latest()->take(5)->get();
 @endphp
 <div class="featured-properties content-area-16 slide-box-2">
     <div class="container">
@@ -12,7 +10,7 @@
         </div>
     </div>
     <div class="slide-container">
-        @foreach($featuredProperties as $property)
+        @foreach($properties as $property)
             @php
                 $unit   = $property->units->first();
                 $image  = $property->galleries->first();

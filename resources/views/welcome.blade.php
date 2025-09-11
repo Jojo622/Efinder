@@ -200,7 +200,7 @@
         <div class="search-section-area ssa2 active-pate">
             <div class="search-area-inner">
                 <div class="search-contents">
-                    <form method="POST" id="filter-property">
+                    <form method="GET" id="filter-property" action="{{ route('welcome') }}">
                         <div class="row">
                             <div class="col-lg-3 col-md-6 col-sm-6 col-6">
                                 <div class="form-group">

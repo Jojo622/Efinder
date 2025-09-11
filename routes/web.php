@@ -3,12 +3,11 @@
 use App\Http\Controllers\Client\PropertyController;
 use App\Http\Controllers\Client\CustomerController;
 use App\Http\Controllers\Client\UserController;
+use App\Http\Controllers\WelcomeController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [WelcomeController::class, 'index'])->name('welcome');
 
 Auth::routes();
 
