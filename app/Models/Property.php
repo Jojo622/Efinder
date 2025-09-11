@@ -15,5 +15,25 @@ class Property extends Model
         'geo',
         'amenities',
     ];
+
+    protected $casts = [
+        'geo' => 'array',
+        'amenities' => 'array',
+    ];
+
+    public function units()
+    {
+        return $this->hasMany(Unit::class);
+    }
+
+    public function galleries()
+    {
+        return $this->hasMany(Gallery::class);
+    }
+
+    public function documents()
+    {
+        return $this->hasMany(Document::class);
+    }
 }
 
