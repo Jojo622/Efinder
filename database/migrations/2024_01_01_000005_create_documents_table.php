@@ -10,6 +10,7 @@ return new class extends Migration
     {
         Schema::create('documents', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('property_id')->constrained('properties')->cascadeOnDelete();
             $table->string('name');
             $table->string('path');
             $table->timestamps();
