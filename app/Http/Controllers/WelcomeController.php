@@ -46,7 +46,7 @@ class WelcomeController extends Controller
             });
         }
 
-        $properties = $query->latest()->take(5)->get();
+        $properties = $query->latest()->get();
 
         return view('welcome', compact('properties'));
     }
