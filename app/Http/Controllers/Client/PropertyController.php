@@ -42,6 +42,7 @@ class PropertyController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
+            'name' => 'required|string|max:255',
             'address' => 'required|string|max:255',
             'latitude' => 'required|numeric',
             'longitude' => 'required|numeric',
@@ -58,6 +59,7 @@ class PropertyController extends Controller
 
         $property = Property::create([
             'client_id' => Auth::id(),
+            'name' => $validated['name'],
             'address' => $validated['address'],
             'geo' => [
                 'lat' => $validated['latitude'],
@@ -126,6 +128,7 @@ class PropertyController extends Controller
     public function update(Request $request, Property $property)
     {
         $validated = $request->validate([
+            'name' => 'required|string|max:255',
             'address' => 'required|string|max:255',
             'latitude' => 'required|numeric',
             'longitude' => 'required|numeric',
@@ -141,6 +144,7 @@ class PropertyController extends Controller
         ]);
 
         $property->update([
+            'name' => $validated['name'],
             'address' => $validated['address'],
             'geo' => [
                 'lat' => $validated['latitude'],

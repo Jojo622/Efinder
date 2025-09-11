@@ -1,4 +1,11 @@
 <div class="form-group">
+    <label for="name" class="form-label">Name</label>
+    <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" id="name" value="{{ old('name', $property->name ?? '') }}" />
+    @error('name')
+        <div class="text-danger">{{ $message }}</div>
+    @enderror
+</div>
+<div class="form-group">
     <label for="address" class="form-label">Address</label>
     <input type="text" name="address" class="form-control @error('address') is-invalid @enderror" id="address" value="{{ old('address', $property->address ?? '') }}" />
     @error('address')

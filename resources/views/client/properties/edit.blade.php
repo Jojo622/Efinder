@@ -7,7 +7,7 @@
                 <form action="{{ route('properties.update', $property) }}" method="post" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
-                    @include('client.properties.form')
+                    @include('client.properties.form', ['property' => $property, 'unit' => $unit])
                     <div class="form-group d-flex justify-content-end">
                         <button class="btn btn-primary" type="submit">Update</button>
                     </div>
