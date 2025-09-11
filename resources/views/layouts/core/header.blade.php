@@ -26,13 +26,15 @@
                                 My Account
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                @if (!auth()->check())
                                 <li><a class="dropdown-item" href="{{ url('login') }}">Login</a></li>
                                 <li><a class="dropdown-item" href="{{ url('register') }}">Register</a></li>
                                 <li><a class="dropdown-item" href="{{ url('password/reset') }}">Forgot Password</a></li>
+                                @endif
                                 @if (auth()->check())
                                 <li><a class="dropdown-item" href="{{ url('home') }}">Dashboard</a></li>
                                 <li><a class="dropdown-item" href="{{ url('client/profile') }}">My Profile</a></li>
-                                <li><a class="dropdown-item" href="{{ url('client/properties') }}?type=mine">My Properties</a></li>
+                                <li><a class="dropdown-item" href="{{ url('client/properties') }}">My Properties</a></li>
                                 @endif
                             </ul>
                         </li>
