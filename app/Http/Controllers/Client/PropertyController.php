@@ -19,7 +19,11 @@ class PropertyController extends Controller
     public function index()
     {
         $properties = Property::with('units')
-            ->where('client_id', Auth::id())
+            ->where(function($query) {
+                if(Auth::user()->role === 'Customer') {
+                    return $query->where('client_id', Auth::id());
+                }
+            })
             ->paginate(10);
 
         return view('client.properties.index', compact('properties'));

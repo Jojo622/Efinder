@@ -8,21 +8,21 @@
     <div class="container">
         <!-- Main title -->
         <div class="main-title-4 d-flex">
-            <h2 data-title="Chice Properties"> Featured Properties</h2>
+            <h2 data-title="Chice Properties">Featured Properties</h2>
         </div>
     </div>
     <div class="slide-container">
         @foreach($featuredProperties as $property)
             @php
-                $unit = $property->units->first();
-                $image = $property->galleries->first();
+                $unit   = $property->units->first();
+                $image  = $property->galleries->first();
             @endphp
             <div class="wrapper">
                 <div class="card">
                     <div class="cardImage">
                         <div class="property-box-4">
                             <div class="property-photo">
-                                <img class="img-fluid w-100" src="{{ $image ? Storage::url($image->path) : 'https://via.placeholder.com/350x200?text=No+Image' }}" alt="properties">
+                                <img class="img-fluid w-100" style="height: 285px; object-fit: cover" src="{{ $image ? Storage::url($image->path) : 'https://via.placeholder.com/350x200?text=No+Image' }}" alt="properties">
                                 @if($unit)
                                     <div class="tag">{{ $unit->availability ? 'For Rent' : 'Not Available' }}</div>
                                     <div class="plan-price"><sup>$</sup>{{ $unit->rent }}<span>/month</span></div>
@@ -33,7 +33,7 @@
                                     <h3>
                                         <a href="#">{{ $property->name }}</a>
                                     </h3>
-                                    <div class="location">
+                                    <div class="location" style="color: #333">
                                         <i class="fa fa-map-marker"></i>{{ $property->address }}
                                     </div>
                                 </div>
