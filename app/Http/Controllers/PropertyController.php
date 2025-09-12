@@ -3,15 +3,21 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Property;
 
 class PropertyController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('properties.index');
+        $properties = Property::with('units', 'galleries')->paginate(10);
+
+        return view('properties.index', [
+            'properties' => $properties,
+            'filters' => $request->all(),
+        ]);
     }
 
     /**
@@ -27,7 +33,38 @@ class PropertyController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $query = Property::with('units', 'galleries');
+
+        if ($request->filled('bedrooms')) {
+            $query->whereHas('units', function ($q) use ($request) {
+                $q->where('bed', $request->bedrooms);
+            });
+        }
+
+        if ($request->filled('bathroom')) {
+            $query->whereHas('units', function ($q) use ($request) {
+                $q->where('bath', $request->bathroom);
+            });
+        }
+
+        if ($request->filled('min_price') && $request->filled('max_price')) {
+            $query->whereHas('units', function ($q) use ($request) {
+                $q->whereBetween('rent', [$request->min_price, $request->max_price]);
+            });
+        }
+
+        if ($request->filled('min_area') && $request->filled('max_area')) {
+            $query->whereHas('units', function ($q) use ($request) {
+                $q->whereBetween('floor_area', [$request->min_area, $request->max_area]);
+            });
+        }
+
+        $properties = $query->paginate(10)->appends($request->except('page'));
+
+        return view('properties.index', [
+            'properties' => $properties,
+            'filters' => $request->all(),
+        ]);
     }
 
     /**
