@@ -72,7 +72,8 @@ class PropertyController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $data['property'] = Property::latest()->paginate();
+        return view('properties.show', $data);
     }
 
     /**

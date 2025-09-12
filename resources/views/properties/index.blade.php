@@ -63,7 +63,7 @@
             <div class="breadcrumb-area">
                 <h1>Properties Listing</h1>
                 <ul class="breadcrumbs">
-                    <li><a href="index.html">Home</a></li>
+                    <li><a href="{{ url('/') }}">Home</a></li>
                     <li class="active">Properties Listing</li>
                 </ul>
             </div>
@@ -90,12 +90,7 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-lg-6 col-4">
-                                <div class="sorting-options">
-                                    <a href="properties-list-rightside.html" class="change-view-btn active-view-btn"><i class="fa fa-th-list"></i></a>
-                                    <a href="properties-grid-rightside.html" class="change-view-btn"><i class="fa fa-th-large"></i></a>
-                                </div>
-                            </div>
+                            <div class="col-lg-6 col-4"></div>
                         </div>
                     </div>
                     @if($properties->count())

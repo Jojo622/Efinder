@@ -29,7 +29,7 @@
                             <div class="detail">
                                 <div class="heading">
                                     <h3>
-                                        <a href="#">{{ $property->name }}</a>
+                                        <a href="{{ url('properties', $property->id) }}">{{ $property->name }}</a>
                                     </h3>
                                     <div class="location" style="color: #333">
                                         <i class="fa fa-map-marker"></i>{{ $property->address }}
