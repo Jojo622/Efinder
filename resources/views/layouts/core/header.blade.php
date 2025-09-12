@@ -3,7 +3,7 @@
     <div class="container">
         <div class="header-inner">
             <nav class="navbar navbar-expand-lg navbar-light">
-                <a class="navbar-brand logos d-flex w-33 mr-auto" href="index.html">
+                <a class="navbar-brand logos d-flex w-33 mr-auto" href="{{ url('/') }}">
                     <img src="{{ url('assets/img/logos/black-logo.png') }}" alt="logo" class="logo-photo">
                 </a>
                 <button class="navbar-toggler" id="drawer" type="button">
