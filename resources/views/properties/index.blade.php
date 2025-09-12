@@ -98,469 +98,47 @@
                             </div>
                         </div>
                     </div>
-                    <!-- Property box 2 start -->
-                    <div class="property-box-2" >
-                        <div class="row g-0">
-                            <div class="col-lg-5 col-md-5">
-                                <div class="property-photo">
-                                    <a href="properties-details.html" class="property-img">
-                                        <img src="https://storage.googleapis.com/theme-vessel-items/checking-sites/neer-html/HTML/main/img/properties/properties-list-2.jpg" alt="properties" class="img-fluid">
-                                        <div class="listing-badges">
-                                            <span class="featured">Featured</span>
+                    @if($properties->count())
+                        @foreach($properties as $property)
+                        <div class="property-box-2">
+                            <div class="row g-0">
+                                <div class="col-lg-5 col-md-5">
+                                    <div class="property-photo">
+                                        <a href="#" class="property-img">
+                                            <img src="{{ $property->galleries->first()->path ?? url('assets/img/properties/properties-list-1.jpg') }}" alt="properties" class="img-fluid">
+                                            <div class="price-box"><span>${{ number_format(optional($property->units->first())->rent, 2) }}</span> Per month</div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-lg-7 col-md-7">
+                                    <div class="detail">
+                                        <div class="hdg">
+                                            <h3 class="title">
+                                                <a href="#">{{ $property->name }}</a>
+                                            </h3>
+                                            <h5 class="location">
+                                                <a href="#">
+                                                    <i class="flaticon-pin"></i>{{ $property->address }}
+                                                </a>
+                                            </h5>
                                         </div>
-                                        <div class="price-box"><span>$850.00</span> Per month</div>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-lg-7 col-md-7">
-                                <div class="detail">
-                                    <div class="hdg">
-                                        <h3 class="title">
-                                            <a href="properties-details.html">Park avenue</a>
-                                        </h3>
-                                        <h5 class="location">
-                                            <a href="properties-details.html">
-                                                <i class="flaticon-pin"></i>20-21 Kathal St. Tampa City, FL
-                                            </a>
-                                        </h5>
-                                    </div>
-                                    <ul class="facilities-list clearfix">
-                                        <li>
-                                            <span>Area</span>3600 Sqft
-                                        </li>
-                                        <li>
-                                            <span>Beds</span> 3
-                                        </li>
-                                        <li>
-                                            <span>Baths</span> 2
-                                        </li>
-                                        <li>
-                                            <span>Garage</span> 1
-                                        </li>
-                                    </ul>
-                                    <div class="footer">
-                                        <a href="#" tabindex="0">
-                                            <i class="flaticon-male"></i>Jhon Doe
-                                        </a>
-                                        <span>
-                                            <i class="flaticon-calendar"></i>5 Days ago
-                                        </span>
+                                        <ul class="facilities-list clearfix">
+                                            <li><span>Area</span>{{ optional($property->units->first())->floor_area }} Sqft</li>
+                                            <li><span>Beds</span>{{ optional($property->units->first())->bed }}</li>
+                                            <li><span>Baths</span>{{ optional($property->units->first())->bath }}</li>
+                                            <li><span>Rent</span>${{ number_format(optional($property->units->first())->rent, 2) }}</li>
+                                        </ul>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="property-box-2" >
-                        <div class="row g-0">
-                            <div class="col-lg-5 col-md-5">
-                                <div class="property-photo">
-                                    <a href="properties-details.html" class="property-img">
-                                        <img src="https://storage.googleapis.com/theme-vessel-items/checking-sites/neer-html/HTML/main/img/properties/properties-list-1.jpg" alt="properties" class="img-fluid rounded-start">
-                                        <div class="tag">For Rent</div>
-                                        <div class="price-box"><span>$850.00</span> Per month</div>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-lg-7 col-md-7">
-                                <div class="detail">
-                                    <div class="hdg">
-                                        <h3 class="title">
-                                            <a href="properties-details.html">Relaxing Apartment</a>
-                                        </h3>
-                                        <h5 class="location">
-                                            <a href="properties-details.html">
-                                                <i class="flaticon-pin"></i>20-21 Kathal St. Tampa City, FL
-                                            </a>
-                                        </h5>
-                                    </div>
-                                    <ul class="facilities-list clearfix">
-                                        <li>
-                                            <span>Area</span>3600 Sqft
-                                        </li>
-                                        <li>
-                                            <span>Beds</span> 3
-                                        </li>
-                                        <li>
-                                            <span>Baths</span> 2
-                                        </li>
-                                        <li>
-                                            <span>Garage</span> 1
-                                        </li>
-                                    </ul>
-                                    <div class="footer">
-                                        <a href="#" tabindex="0">
-                                            <i class="flaticon-male"></i>Jhon Doe
-                                        </a>
-                                        <span>
-                                            <i class="flaticon-calendar"></i>5 Days ago
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
+                        @endforeach
+                        <div class="pagination-box hidden-mb-45 text-center">
+                            {{ $properties->links('vendor.pagination.custom') }}
                         </div>
-                    </div>
-                    <div class="property-box-2" >
-                        <div class="row g-0">
-                            <div class="col-lg-5 col-md-5">
-                                <div class="property-photo">
-                                    <a href="properties-details.html" class="property-img">
-                                        <img src="https://storage.googleapis.com/theme-vessel-items/checking-sites/neer-html/HTML/main/img/properties/properties-list-5.jpg" alt="properties" class="img-fluid">
-                                        <div class="tag">For Rent</div>
-                                        <div class="price-box"><span>$850.00</span> Per month</div>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-lg-7 col-md-7">
-                                <div class="detail">
-                                    <div class="hdg">
-                                        <h3 class="title">
-                                            <a href="properties-details.html">Park avenue</a>
-                                        </h3>
-                                        <h5 class="location">
-                                            <a href="properties-details.html">
-                                                <i class="flaticon-pin"></i>20-21 Kathal St. Tampa City, FL
-                                            </a>
-                                        </h5>
-                                    </div>
-                                    <ul class="facilities-list clearfix">
-                                        <li>
-                                            <span>Area</span>3600 Sqft
-                                        </li>
-                                        <li>
-                                            <span>Beds</span> 3
-                                        </li>
-                                        <li>
-                                            <span>Baths</span> 2
-                                        </li>
-                                        <li>
-                                            <span>Garage</span> 1
-                                        </li>
-                                    </ul>
-                                    <div class="footer">
-                                        <a href="#" tabindex="0">
-                                            <i class="flaticon-male"></i>Jhon Doe
-                                        </a>
-                                        <span>
-                                            <i class="flaticon-calendar"></i>5 Days ago
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="property-box-2" >
-                        <div class="row g-0">
-                            <div class="col-lg-5 col-md-5">
-                                <div class="property-photo">
-                                    <a href="properties-details.html" class="property-img">
-                                        <img src="https://storage.googleapis.com/theme-vessel-items/checking-sites/neer-html/HTML/main/img/properties/properties-list-3.jpg" alt="properties" class="img-fluid">
-                                        <div class="tag">For Sale</div>
-                                        <div class="price-box"><span>$850.00</span> Per month</div>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-lg-7 col-md-7">
-                                <div class="detail">
-                                    <div class="hdg">
-                                        <h3 class="title">
-                                            <a href="properties-details.html">Modern Family Home</a>
-                                        </h3>
-                                        <h5 class="location">
-                                            <a href="properties-details.html">
-                                                <i class="flaticon-pin"></i>20-21 Kathal St. Tampa City, FL
-                                            </a>
-                                        </h5>
-                                    </div>
-                                    <ul class="facilities-list clearfix">
-                                        <li>
-                                            <span>Area</span>3600 Sqft
-                                        </li>
-                                        <li>
-                                            <span>Beds</span> 3
-                                        </li>
-                                        <li>
-                                            <span>Baths</span> 2
-                                        </li>
-                                        <li>
-                                            <span>Garage</span> 1
-                                        </li>
-                                    </ul>
-                                    <div class="footer">
-                                        <a href="#" tabindex="0">
-                                            <i class="flaticon-male"></i>Jhon Doe
-                                        </a>
-                                        <span>
-                                            <i class="flaticon-calendar"></i>5 Days ago
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="property-box-2" >
-                        <div class="row g-0">
-                            <div class="col-lg-5 col-md-5">
-                                <div class="property-photo">
-                                    <a href="properties-details.html" class="property-img">
-                                        <img src="https://storage.googleapis.com/theme-vessel-items/checking-sites/neer-html/HTML/main/img/properties/properties-list-4.jpg" alt="properties" class="img-fluid">
-                                        <div class="listing-badges">
-                                            <span class="featured">Featured</span>
-                                        </div>
-                                        <div class="price-box"><span>$850.00</span> Per month</div>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-lg-7 col-md-7">
-                                <div class="detail">
-                                    <div class="hdg">
-                                        <h3 class="title">
-                                            <a href="properties-details.html">Relaxing Apartment</a>
-                                        </h3>
-                                        <h5 class="location">
-                                            <a href="properties-details.html">
-                                                <i class="flaticon-pin"></i>20-21 Kathal St. Tampa City, FL
-                                            </a>
-                                        </h5>
-                                    </div>
-                                    <ul class="facilities-list clearfix">
-                                        <li>
-                                            <span>Area</span>3600 Sqft
-                                        </li>
-                                        <li>
-                                            <span>Beds</span> 3
-                                        </li>
-                                        <li>
-                                            <span>Baths</span> 2
-                                        </li>
-                                        <li>
-                                            <span>Garage</span> 1
-                                        </li>
-                                    </ul>
-                                    <div class="footer">
-                                        <a href="#" tabindex="0">
-                                            <i class="flaticon-male"></i>Jhon Doe
-                                        </a>
-                                        <span>
-                                            <i class="flaticon-calendar"></i>5 Days ago
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="property-box-2" >
-                        <div class="row g-0">
-                            <div class="col-lg-5 col-md-5">
-                                <div class="property-photo">
-                                    <a href="properties-details.html" class="property-img">
-                                        <img src="https://storage.googleapis.com/theme-vessel-items/checking-sites/neer-html/HTML/main/img/properties/properties-list-2.jpg" alt="properties" class="img-fluid">
-                                        <div class="listing-badges">
-                                            <span class="featured">Featured</span>
-                                        </div>
-                                        <div class="price-box"><span>$850.00</span> Per month</div>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-lg-7 col-md-7">
-                                <div class="detail">
-                                    <div class="hdg">
-                                        <h3 class="title">
-                                            <a href="properties-details.html">Park avenue</a>
-                                        </h3>
-                                        <h5 class="location">
-                                            <a href="properties-details.html">
-                                                <i class="flaticon-pin"></i>20-21 Kathal St. Tampa City, FL
-                                            </a>
-                                        </h5>
-                                    </div>
-                                    <ul class="facilities-list clearfix">
-                                        <li>
-                                            <span>Area</span>3600 Sqft
-                                        </li>
-                                        <li>
-                                            <span>Beds</span> 3
-                                        </li>
-                                        <li>
-                                            <span>Baths</span> 2
-                                        </li>
-                                        <li>
-                                            <span>Garage</span> 1
-                                        </li>
-                                    </ul>
-                                    <div class="footer">
-                                        <a href="#" tabindex="0">
-                                            <i class="flaticon-male"></i>Jhon Doe
-                                        </a>
-                                        <span>
-                                            <i class="flaticon-calendar"></i>5 Days ago
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="property-box-2" >
-                        <div class="row g-0">
-                            <div class="col-lg-5 col-md-5">
-                                <div class="property-photo">
-                                    <a href="properties-details.html" class="property-img">
-                                        <img src="https://storage.googleapis.com/theme-vessel-items/checking-sites/neer-html/HTML/main/img/properties/properties-list-1.jpg" alt="properties" class="img-fluid rounded-start">
-                                        <div class="tag">For Rent</div>
-                                        <div class="price-box"><span>$850.00</span> Per month</div>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-lg-7 col-md-7">
-                                <div class="detail">
-                                    <div class="hdg">
-                                        <h3 class="title">
-                                            <a href="properties-details.html">Relaxing Apartment</a>
-                                        </h3>
-                                        <h5 class="location">
-                                            <a href="properties-details.html">
-                                                <i class="flaticon-pin"></i>20-21 Kathal St. Tampa City, FL
-                                            </a>
-                                        </h5>
-                                    </div>
-                                    <ul class="facilities-list clearfix">
-                                        <li>
-                                            <span>Area</span>3600 Sqft
-                                        </li>
-                                        <li>
-                                            <span>Beds</span> 3
-                                        </li>
-                                        <li>
-                                            <span>Baths</span> 2
-                                        </li>
-                                        <li>
-                                            <span>Garage</span> 1
-                                        </li>
-                                    </ul>
-                                    <div class="footer">
-                                        <a href="#" tabindex="0">
-                                            <i class="flaticon-male"></i>Jhon Doe
-                                        </a>
-                                        <span>
-                                            <i class="flaticon-calendar"></i>5 Days ago
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="property-box-2" >
-                        <div class="row g-0">
-                            <div class="col-lg-5 col-md-5">
-                                <div class="property-photo">
-                                    <a href="properties-details.html" class="property-img">
-                                        <img src="https://storage.googleapis.com/theme-vessel-items/checking-sites/neer-html/HTML/main/img/properties/properties-list-5.jpg" alt="properties" class="img-fluid">
-                                        <div class="tag">For Rent</div>
-                                        <div class="price-box"><span>$850.00</span> Per month</div>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-lg-7 col-md-7">
-                                <div class="detail">
-                                    <div class="hdg">
-                                        <h3 class="title">
-                                            <a href="properties-details.html">Park avenue</a>
-                                        </h3>
-                                        <h5 class="location">
-                                            <a href="properties-details.html">
-                                                <i class="flaticon-pin"></i>20-21 Kathal St. Tampa City, FL
-                                            </a>
-                                        </h5>
-                                    </div>
-                                    <ul class="facilities-list clearfix">
-                                        <li>
-                                            <span>Area</span>3600 Sqft
-                                        </li>
-                                        <li>
-                                            <span>Beds</span> 3
-                                        </li>
-                                        <li>
-                                            <span>Baths</span> 2
-                                        </li>
-                                        <li>
-                                            <span>Garage</span> 1
-                                        </li>
-                                    </ul>
-                                    <div class="footer">
-                                        <a href="#" tabindex="0">
-                                            <i class="flaticon-male"></i>Jhon Doe
-                                        </a>
-                                        <span>
-                                            <i class="flaticon-calendar"></i>5 Days ago
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="property-box-2" >
-                        <div class="row g-0">
-                            <div class="col-lg-5 col-md-5">
-                                <div class="property-photo">
-                                    <a href="properties-details.html" class="property-img">
-                                        <img src="https://storage.googleapis.com/theme-vessel-items/checking-sites/neer-html/HTML/main/img/properties/properties-list-3.jpg" alt="properties" class="img-fluid">
-                                        <div class="tag">For Sale</div>
-                                        <div class="price-box"><span>$850.00</span> Per month</div>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-lg-7 col-md-7">
-                                <div class="detail">
-                                    <div class="hdg">
-                                        <h3 class="title">
-                                            <a href="properties-details.html">Modern Family Home</a>
-                                        </h3>
-                                        <h5 class="location">
-                                            <a href="properties-details.html">
-                                                <i class="flaticon-pin"></i>20-21 Kathal St. Tampa City, FL
-                                            </a>
-                                        </h5>
-                                    </div>
-                                    <ul class="facilities-list clearfix">
-                                        <li>
-                                            <span>Area</span>3600 Sqft
-                                        </li>
-                                        <li>
-                                            <span>Beds</span> 3
-                                        </li>
-                                        <li>
-                                            <span>Baths</span> 2
-                                        </li>
-                                        <li>
-                                            <span>Garage</span> 1
-                                        </li>
-                                    </ul>
-                                    <div class="footer">
-                                        <a href="#" tabindex="0">
-                                            <i class="flaticon-male"></i>Jhon Doe
-                                        </a>
-                                        <span>
-                                            <i class="flaticon-calendar"></i>5 Days ago
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Page navigation start -->
-                    <div class="pagination-box hidden-mb-45 text-center">
-                        <nav aria-label="Page navigation example">
-                            <ul class="pagination">
-                                <li class="page-item">
-                                    <a class="page-link" href="#">Prev</a>
-                                </li>
-                                <li class="page-item"><a class="page-link active" href="#">1</a></li>
-                                <li class="page-item"><a class="page-link" href="properties-list-leftsidebar.html">2</a></li>
-                                <li class="page-item"><a class="page-link" href="properties-list-fullwidth.html">3</a></li>
-                                <li class="page-item">
-                                    <a class="page-link" href="properties-list-leftsidebar.html">Next</a>
-                                </li>
-                            </ul>
-                        </nav>
+                    @else
+                        <p>No properties found.</p>
+                    @endif
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-12">
@@ -570,7 +148,8 @@
                             <h3 class="sidebar-title">Advanced Search</h3>
                             <div class="s-border"></div>
                             <div class="m-border"></div>
-                            <form method="GET">
+                            <form method="POST" action="{{ route('properties.store') }}">
+                                @csrf
                                 <div class="form-group">
                                     <select class="selectpicker search-fields" name="all-status">
                                         <option>All Status</option>
@@ -608,22 +187,22 @@
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <select class="selectpicker search-fields" name="bedrooms">
-                                                <option>Bedrooms</option>
-                                                <option>1</option>
-                                                <option>2</option>
-                                                <option>3</option>
-                                                <option>4</option>
+                                                <option value="">Bedrooms</option>
+                                                <option value="1" @selected(($filters['bedrooms'] ?? '') == '1')>1</option>
+                                                <option value="2" @selected(($filters['bedrooms'] ?? '') == '2')>2</option>
+                                                <option value="3" @selected(($filters['bedrooms'] ?? '') == '3')>3</option>
+                                                <option value="4" @selected(($filters['bedrooms'] ?? '') == '4')>4</option>
                                             </select>
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <select class="selectpicker search-fields" name="bathroom">
-                                                <option>Bathroom</option>
-                                                <option>1</option>
-                                                <option>2</option>
-                                                <option>3</option>
-                                                <option>4</option>
+                                                <option value="">Bathroom</option>
+                                                <option value="1" @selected(($filters['bathroom'] ?? '') == '1')>1</option>
+                                                <option value="2" @selected(($filters['bathroom'] ?? '') == '2')>2</option>
+                                                <option value="3" @selected(($filters['bathroom'] ?? '') == '3')>3</option>
+                                                <option value="4" @selected(($filters['bathroom'] ?? '') == '4')>4</option>
                                             </select>
                                         </div>
                                     </div>
