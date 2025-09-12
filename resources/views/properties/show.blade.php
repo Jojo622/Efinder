@@ -80,18 +80,18 @@
                 <div class="heading-properties-3">
                     <div class="clearfix">
                         <div class="pull-left">
-                            <h1>Relaxing Apartment</h1>
+                            <h1>{{ $property->name }}</h1>
                         </div>
                         <div class="pull-right">
-                            <h1><span>$2825.00</span></h1>
+                            <h1><span>${{ number_format(optional($property->units->first())->rent, 2) }}</span></h1>
                         </div>
                     </div>
                     <div class="clearfix">
                         <div class="pull-left">
-                            <p><i class="flaticon-pin"></i>123 Kathal St. Tampa City, </p>
+                            <p><i class="flaticon-pin"></i>{{ $property->address }}</p>
                         </div>
                         <div class="pull-right">
-                            <p><span>$ 1,200 / sq ft</span></p>
+                            <p><span>{{ optional($property->units->first())->floor_area }} sq ft</span></p>
                         </div>
                     </div>
                 </div>
@@ -127,63 +127,15 @@
                         Features
                     </h3>
                     <div class="row">
-                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                            <ul class="amenities">
-                                <li>
-                                    <i class="fa fa-check"></i>Air conditioning
-                                </li>
-                                <li>
-                                    <i class="fa fa-check"></i>Balcony
-                                </li>
-                                <li>
-                                    <i class="fa fa-check"></i>Pool
-                                </li>
-                                <li>
-                                    <i class="fa fa-check"></i>Room service
-                                </li>
-                                <li>
-                                    <i class="fa fa-check"></i>Gym
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                            <ul class="amenities">
-                                <li>
-                                    <i class="fa fa-check"></i>Wifi
-                                </li>
-                                <li>
-                                    <i class="fa fa-check"></i>Parking
-                                </li>
-                                <li>
-                                    <i class="fa fa-check"></i>Double Bed
-                                </li>
-                                <li>
-                                    <i class="fa fa-check"></i>Home Theater
-                                </li>
-                                <li>
-                                    <i class="fa fa-check"></i>Electric
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                            <ul class="amenities">
-                                <li>
-                                    <i class="fa fa-check"></i>Telephone
-                                </li>
-                                <li>
-                                    <i class="fa fa-check"></i>Jacuzzi
-                                </li>
-                                <li>
-                                    <i class="fa fa-check"></i>Alarm
-                                </li>
-                                <li>
-                                    <i class="fa fa-check"></i>Garage
-                                </li>
-                                <li>
-                                    <i class="fa fa-check"></i>Security
-                                </li>
-                            </ul>
-                        </div>
+                        @foreach($property->features->chunk(5) as $chunk)
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                <ul class="amenities">
+                                    @foreach($chunk as $feature)
+                                        <li><i class="fa fa-check"></i>{{ $feature->name }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endforeach
                     </div>
                 </div>
                 <!-- Floor plans start -->

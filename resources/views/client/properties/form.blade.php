@@ -32,6 +32,27 @@
         </div>
     </div>
 </div>
+<div class="form-group">
+    <label class="form-label">Features</label>
+    <div class="row">
+        @php
+            $allFeatures = [
+                'Air conditioning', 'Balcony', 'Pool', 'Room service', 'Gym',
+                'Wifi', 'Parking', 'Double Bed', 'Home Theater', 'Electric',
+                'Telephone', 'Jacuzzi', 'Alarm', 'Garage', 'Security'
+            ];
+            $selectedFeatures = old('features', $property->features->pluck('name')->toArray());
+        @endphp
+        @foreach($allFeatures as $index => $feature)
+            <div class="col-4">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="features[]" id="feature{{ $index }}" value="{{ $feature }}" {{ in_array($feature, $selectedFeatures) ? 'checked' : '' }}>
+                    <label class="form-check-label" for="feature{{ $index }}">{{ $feature }}</label>
+                </div>
+            </div>
+        @endforeach
+    </div>
+</div>
 <div class="row">
     <div class="col-4">
         <div class="form-group">

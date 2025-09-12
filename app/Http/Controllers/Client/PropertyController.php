@@ -59,6 +59,8 @@ class PropertyController extends Controller
             'policies' => 'nullable|string',
             'images.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'document' => 'nullable|file|max:5120',
+            'features' => 'nullable|array',
+            'features.*' => 'string',
         ]);
 
         $property = Property::create([
@@ -82,6 +84,12 @@ class PropertyController extends Controller
             'policies' => $validated['policies'] ?? null,
             'availability' => $validated['availability'],
         ]);
+
+        if (!empty($validated['features'])) {
+            foreach ($validated['features'] as $feature) {
+                $property->features()->create(['name' => $feature]);
+            }
+        }
 
         if ($request->hasFile('images')) {
             foreach ($request->file('images') as $image) {
@@ -145,6 +153,8 @@ class PropertyController extends Controller
             'policies' => 'nullable|string',
             'images.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'document' => 'nullable|file|max:5120',
+            'features' => 'nullable|array',
+            'features.*' => 'string',
         ]);
 
         $property->update([
@@ -180,6 +190,13 @@ class PropertyController extends Controller
             ]);
         }
 
+        $property->features()->delete();
+        if (!empty($validated['features'])) {
+            foreach ($validated['features'] as $feature) {
+                $property->features()->create(['name' => $feature]);
+            }
+        }
+
         if ($request->hasFile('images')) {
             foreach ($request->file('images') as $image) {
                 $path = $image->store('galleries', 'public');
@@ -210,6 +227,7 @@ class PropertyController extends Controller
      */
     public function destroy(Property $property)
     {
+        $property->features()->delete();
         $property->delete();
 
         return redirect()->route('properties.index')
