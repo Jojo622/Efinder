@@ -36,5 +36,10 @@ class Property extends Model
     {
         return $this->hasMany(Document::class);
     }
+
+    public function features()
+    {
+        return $this->hasMany(PropertyFeature::class);
+    }
 }
 
