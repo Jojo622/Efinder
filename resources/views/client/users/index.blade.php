@@ -5,6 +5,10 @@
         @if(session('success'))
             <div class="alert alert-success">{{ session('success') }}</div>
         @endif
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <h4 class="mb-0">Users</h4>
+            <a href="{{ url('client/users/create') }}" class="btn btn-primary">Add New User</a>
+        </div>
         <div class="card">
             <div class="card-body">
                 <table class="table table-hover table-striped">

@@ -17,7 +17,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::prefix('client')->middleware(['auth:web'])->group(function() {
     Route::resource('properties', PropertyController::class);
     Route::resource('customers', CustomerController::class)->only(['index','edit','update']);
-    Route::resource('users', UserController::class)->only(['index','edit','update']);
-});
+    Route::resource('users', UserController::class);
 
-Route::resource('properties', SitePropertyController::class);
+    Route::resource('properties', SitePropertyController::class);
+});
