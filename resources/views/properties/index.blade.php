@@ -156,9 +156,8 @@
                                     <select class="selectpicker search-fields" name="all-type">
                                         <option>All Type</option>
                                         <option>Apartments</option>
-                                        <option>Shop</option>
-                                        <option>Restaurant</option>
-                                        <option>Villa</option>
+                                        <option>Dormitory</option>
+                                        <option>Bedspace</option>
                                     </select>
                                 </div>
                                 <div class="form-group">

@@ -67,9 +67,8 @@
                     <div class="carousel-content container align-self-center">
                         <div class="banner-info2">
                             <div class="text-l">
-                                <h3 class="text-uppercase">Discover Modern Villa</h3>
-                                <p>
-                                </p>
+                                <h3 class="text-uppercase">Discover Modern Dormitory</h3>
+                                <p>Nag hahanap ka ng dorm mo akong bahala</p>
                                 <a href="#" class="btn-6">Get Started Now</a>
                                 <a href="#" class="btn-5">Free Download</a>
                             </div>
@@ -84,7 +83,7 @@
                         <div class="t-left banner-info2">
                             <div class="text-l">
                                 <h3 class="text-uppercase">Find Your Dreem Property</h3>
-                                <p>
+                                <p>Gagabayan kita sa paghahanap ng dormitoryo na swak sa'yo
                                 </p>
                                 <a href="#" class="btn-6">Get Started Now</a>
                                 <a href="#" class="btn-5">Free Download</a>
@@ -141,7 +140,8 @@
                                         <select class="selectpicker search-fields" name="all-type">
                                             <option>All Type</option>
                                             <option>Apartments</option>
-                                            <option>Condominiums</option>
+                                            <option>Dormitories</option>
+                                            <option>Bedspaces</option>
                                         </select>
                                     </div>
                                 </div>

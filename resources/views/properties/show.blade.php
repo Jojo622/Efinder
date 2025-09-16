@@ -286,7 +286,7 @@
                                 <select class="selectpicker search-fields" name="all-type">
                                     <option>All Type</option>
                                     <option>Apartments</option>
-                                    <option>Bedspacing</option>
+                                    <option>Dormitory</option>
                                 </select>
                             </div>
                             <div class="form-group">
