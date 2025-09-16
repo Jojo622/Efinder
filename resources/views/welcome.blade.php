@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zxx">
 <head>
-    <title>Neer - Real Estate HTML Template</title>
+    <title>eFinder - Finding Dorm</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
 
@@ -69,7 +69,6 @@
                             <div class="text-l">
                                 <h3 class="text-uppercase">Discover Modern Villa</h3>
                                 <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
                                 </p>
                                 <a href="#" class="btn-6">Get Started Now</a>
                                 <a href="#" class="btn-5">Free Download</a>
@@ -86,7 +85,6 @@
                             <div class="text-l">
                                 <h3 class="text-uppercase">Find Your Dreem Property</h3>
                                 <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
                                 </p>
                                 <a href="#" class="btn-6">Get Started Now</a>
                                 <a href="#" class="btn-5">Free Download</a>
@@ -103,7 +101,6 @@
                             <div class="text-l">
                                 <h3 class="text-uppercase">Find Your Amazing Home</h3>
                                 <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
                                 </p>
                                 <a href="#" class="btn-6">Get Started Now</a>
                                 <a href="#" class="btn-5">Free Download</a>
@@ -585,7 +582,7 @@
             <div class="row">
                 <div class="col-xl-4 col-lg-3 col-md-6 col-sm-6">
                     <div class="footer-item clearfix">
-                        <img src="{{ url('assets/img/logos/logo.png') }}" alt="logo" class="f-logo">
+                        <img src="{{ url('assets/img/logos/white-logo.png') }}" alt="logo" class="f-logo">
                         <div class="s-border"></div>
                         <div class="m-border"></div>
                         <div class="text">

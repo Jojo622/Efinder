@@ -162,20 +162,12 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <select class="selectpicker search-fields" name="commercial">
-                                        <option>Commercial</option>
-                                        <option>Residential</option>
-                                        <option>Commercial</option>
-                                        <option>Land</option>
-                                    </select>
-                                </div>
-                                <div class="form-group">
                                     <select class="selectpicker search-fields" name="location">
                                         <option>location</option>
-                                        <option>United States</option>
-                                        <option>American Samoa</option>
-                                        <option>Belgium</option>
-                                        <option>Canada</option>
+                                        <option>Philippines</option>
+                                        <option>Bunoan Gueset</option>
+                                        <option>Arellano</option>
+                                        <option>Perez</option>
                                     </select>
                                 </div>
                                 <div class="row">
@@ -233,7 +225,7 @@
                                 </div>
                                 <div class="range-slider clearfix form-group mb-30">
                                     <label>Price</label>
-                                    <div data-min="0" data-max="150000"  data-min-name="min_price" data-max-name="max_price" data-unit="USD" class="range-slider-ui ui-slider" aria-disabled="false"></div>
+                                    <div data-min="0" data-max="150000"  data-min-name="min_price" data-max-name="max_price" data-unit="Peso" class="range-slider-ui ui-slider" aria-disabled="false"></div>
                                     <div class="clearfix"></div>
                                 </div>
 
@@ -318,10 +310,10 @@
                                 </a>
                                 <div class="detail align-self-center">
                                     <h5>
-                                        <a href="properties-details.html">Modern Family Home</a>
+                                        <a href="properties-details.html">Dorm for Woman</a>
                                     </h5>
                                     <div class="listing-post-meta">
-                                        $345,000 | <a href="#"><i class="fa fa-calendar"></i> Oct 27, 2021 </a>
+                                        ₱345,000 | <a href="#"><i class="fa fa-calendar"></i> Oct 27, 2021 </a>
                                     </div>
                                 </div>
                             </div>
@@ -334,7 +326,7 @@
                                         <a href="properties-details.html">Beautiful Single Home</a>
                                     </h5>
                                     <div class="listing-post-meta">
-                                        $415,000 | <a href="#"><i class="fa fa-calendar"></i> Feb 14, 2022 </a>
+                                        ₱415,000 | <a href="#"><i class="fa fa-calendar"></i> Feb 14, 2022 </a>
                                     </div>
                                 </div>
                             </div>
@@ -344,10 +336,10 @@
                                 </a>
                                 <div class="detail align-self-center">
                                     <h5>
-                                        <a href="properties-details.html">Real Luxury Villa</a>
+                                        <a href="properties-details.html">Bedspacing Only Men</a>
                                     </h5>
                                     <div class="listing-post-meta">
-                                        $345,000 | <a href="#"><i class="fa fa-calendar"></i> Jan 12, 2022 </a>
+                                        ₱345,000 | <a href="#"><i class="fa fa-calendar"></i> Jan 12, 2022 </a>
                                     </div>
                                 </div>
                             </div>

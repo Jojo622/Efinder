@@ -23,7 +23,7 @@
                                 <img class="img-fluid w-100" style="height: 285px; object-fit: cover" src="{{ $image ? Storage::url($image->path) : 'https://via.placeholder.com/350x200?text=No+Image' }}" alt="properties">
                                 @if($unit)
                                     <div class="tag">{{ $unit->availability ? 'For Rent' : 'Not Available' }}</div>
-                                    <div class="plan-price"><sup>$</sup>{{ $unit->rent }}<span>/month</span></div>
+                                    <div class="plan-price"><sup>₱</sup>{{ $unit->rent }}<span>/month</span></div>
                                 @endif
                             </div>
                             <div class="detail">
