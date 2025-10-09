@@ -4,42 +4,70 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Property extends Model
 {
     use HasFactory;
 
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var list<string>
+     */
     protected $fillable = [
-        'client_id',
+        'user_id',
         'name',
-        'address',
-        'geo',
+        'type',
+        'status',
+        'monthly_rent',
+        'security_deposit',
+        'location',
+        'street_address',
+        'city',
+        'barangay',
+        'latitude',
+        'longitude',
+        'bedrooms',
+        'bathrooms',
+        'square_footage',
+        'parking_spaces',
+        'availability_date',
+        'lease_term',
+        'contact_name',
+        'contact_email',
+        'contact_phone',
         'amenities',
+        'description',
+        'hero_image',
+        'gallery_images',
+        'pet_policy',
+        'notes',
+        'availability_photo_path',
     ];
 
     protected $casts = [
-        'geo' => 'array',
-        'amenities' => 'array',
+        'availability_date' => 'date',
+        'monthly_rent' => 'decimal:2',
+        'security_deposit' => 'decimal:2',
+        'latitude' => 'decimal:7',
+        'longitude' => 'decimal:7',
     ];
 
-    public function units()
+    /**
+     * Get the user that owns the property.
+     */
+    public function user(): BelongsTo
     {
-        return $this->hasMany(Unit::class);
+        return $this->belongsTo(User::class);
     }
 
-    public function galleries()
+    /**
+     * Get the reservations associated with the property.
+     */
+    public function reservations(): HasMany
     {
-        return $this->hasMany(Gallery::class);
-    }
-
-    public function documents()
-    {
-        return $this->hasMany(Document::class);
-    }
-
-    public function features()
-    {
-        return $this->hasMany(PropertyFeature::class);
+        return $this->hasMany(Reservation::class);
     }
 }
-

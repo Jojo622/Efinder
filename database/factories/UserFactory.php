@@ -23,9 +23,31 @@ class UserFactory extends Factory
      */
     public function definition(): array
     {
+        $firstName = fake()->firstName();
+        $lastName = fake()->lastName();
+
         return [
-            'name' => fake()->name(),
+            'first_name' => $firstName,
+            'last_name' => $lastName,
+            'name' => "$firstName $lastName",
             'email' => fake()->unique()->safeEmail(),
+            'mobile_number' => fake()->phoneNumber(),
+            'role' => 'tenant',
+            'status' => 'Active',
+            'property_name' => fake()->randomElement([
+                'Azure Heights',
+                'Harbor Point',
+                'Summit Row',
+                'Luna Residences',
+                'Riviera Flats',
+            ]),
+            'unit_number' => 'Unit '.fake()->randomNumber(3),
+            'lease_start' => fake()->dateTimeBetween('-1 year', 'now'),
+            'lease_end' => fake()->dateTimeBetween('now', '+1 year'),
+            'monthly_rent' => fake()->randomFloat(2, 15000, 120000),
+            'balance_due' => fake()->boolean(30) ? fake()->randomFloat(2, 500, 5000) : 0,
+            'tenant_status' => fake()->randomElement(['Current', 'Expiring Soon', 'Overdue', 'Notice Given']),
+            'concierge_name' => fake()->name(),
             'email_verified_at' => now(),
             'password' => static::$password ??= Hash::make('password'),
             'remember_token' => Str::random(10),
